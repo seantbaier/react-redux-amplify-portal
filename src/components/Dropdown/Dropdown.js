@@ -1,8 +1,11 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { Auth } from 'aws-amplify'
 
 // import scss
 import './Dropdown.scss'
+
+// Import Images
+import defaultAvatar from '../../assets/default-avatar.png'
 
 class Dropdown extends Component {
   async componentDidMount() {}
@@ -18,7 +21,8 @@ class Dropdown extends Component {
       <div className="dropdown-container">
         <img
           onClick={this.handleSignOut}
-          src={require('../../assets/images/default-avatar.png')}
+          src={defaultAvatar}
+          alt="Default Profile Avatar"
         />
       </div>
     )

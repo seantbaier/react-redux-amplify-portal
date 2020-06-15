@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
 
 // import components
 import Users from './views/Users/Users'
@@ -18,6 +18,13 @@ class Routes extends Component {
                 path="/users"
                 render={(props) => {
                   return <Users match={props.match} history={props.history} />
+                }}
+              />
+              <Route
+                exact
+                path="/"
+                render={(props) => {
+                  return <Redirect to="/users" />
                 }}
               />
             </Switch>

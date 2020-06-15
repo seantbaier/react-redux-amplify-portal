@@ -1,11 +1,17 @@
-import { Component } from 'react'
-import Link from 'next/link'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-// import components
+// Import components
 import Dropdown from '../Dropdown/Dropdown'
 
-// import scss
+// Import scss
 import './Sidebar.scss'
+
+// Import Images
+import monitoringIcon from '../../assets/monitoring-evaluation.svg'
+import researchIcon from '../../assets/research.svg'
+import shopIcon from '../../assets/shop.svg'
+import businessIcon from '../../assets/business.svg'
 
 class Sidebar extends Component {
   async componentDidMount() {}
@@ -15,25 +21,23 @@ class Sidebar extends Component {
       <div className="sidebar-container">
         <div className="nav-container">
           <div className="nav-icon-container">
-            <Link href="/discrepancy-report">
-              <img
-                src={require('../../assets/images/monitoring-evaluation.svg')}
-              />
+            <Link to="/discrepancy-report">
+              <img src={monitoringIcon} alt="Discrepancy Reports Icon" />
             </Link>
           </div>
           <div className="nav-icon-container">
-            <Link href="salesforce-reports">
-              <img src={require('../../assets/images/research.svg')} />
+            <Link to="/salesforce-reports">
+              <img src={researchIcon} alt="Salesforce Reports Icon" />
             </Link>
           </div>
           <div className="nav-icon-container">
-            <Link href="/ecommerce">
-              <img src={require('../../assets/images/shop.svg')} />
+            <Link to="/ecommerce">
+              <img src={shopIcon} alt="Ecommerce Summary Page Icon" />
             </Link>
           </div>
           <div className="nav-icon-container">
-            <Link href="/organizations">
-              <img src={require('../../assets/images/business.svg')} />
+            <Link to="/organizations">
+              <img src={businessIcon} alt="Organizations List Page" />
             </Link>
           </div>
         </div>

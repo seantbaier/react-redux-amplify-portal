@@ -1,4 +1,4 @@
-// import components
+import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import Dashboard from '../Dashboard/Dashboard'
 
