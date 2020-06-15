@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 import configureStore from './store'
 
 // Components
-import View from './views'
+import Routes from './Routes'
 import './styles/app.css'
 
 import * as aws_amplify_react from 'aws-amplify-react'
@@ -40,7 +40,7 @@ const App = () => (
   <Provider store={store}>
     <div>
       <AmplifySignOut />
-      <View />
+      <Routes />
     </div>
   </Provider>
 )

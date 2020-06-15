@@ -2,11 +2,11 @@ import React, { Component, Fragment } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 // import components
-import Users from './users/Users'
+import Users from './views/Users/Users'
 
 // import css and images
 
-class Index extends Component {
+class Routes extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -28,4 +28,4 @@ class Index extends Component {
   }
 }
 
-export default Index
+export default Routes
