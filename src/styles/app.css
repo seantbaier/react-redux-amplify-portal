@@ -133,7 +133,8 @@ table {
   padding: 0;
   transition: 0.5s;
   font-size: 0.75rem;
-  cursor: pointer; }
+  cursor: pointer;
+  background-color: transparent; }
   .link-button:focus {
     outline: none; }
   .link-button:hover {

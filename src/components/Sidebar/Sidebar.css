@@ -17,10 +17,13 @@
       align-items: center;
       margin-bottom: 50px;
       height: 30px; }
-      .sidebar-container .nav-container .nav-icon-container img {
-        height: 100%;
-        filter: grayscale(1);
-        transition: 0.5s;
-        cursor: pointer; }
-        .sidebar-container .nav-container .nav-icon-container img:hover {
-          filter: grayscale(0); }
+      .sidebar-container .nav-container .nav-icon-container a {
+        height: 100%; }
+        .sidebar-container .nav-container .nav-icon-container a img {
+          height: 100%;
+          filter: grayscale(1);
+          transition: 0.25s;
+          cursor: pointer; }
+          .sidebar-container .nav-container .nav-icon-container a img:hover {
+            filter: grayscale(0);
+            transform: scale(1.1, 1.1); }

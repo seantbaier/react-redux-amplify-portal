@@ -1,5 +1,5 @@
 /* eslint-disable react/prefer-stateless-function */
-import React, { Component, Suspense } from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
@@ -13,6 +13,8 @@ import {
   deleteUserAction,
   getUsersAction,
 } from '../../store/actions/user'
+
+import DefaultLayout from '../../components/DefaultLayout/DefaultLayout'
 
 class Users extends Component {
   componentDidMount = async () => {
@@ -30,7 +32,6 @@ class Users extends Component {
       users: {
         data: { params: oldParams },
       },
-      listPageName,
     } = this.props
 
     const {
@@ -90,7 +91,7 @@ class Users extends Component {
   }
 
   async deleteUser(id) {
-    const { deleteUser, signOut, history } = this.props
+    const { deleteUser, signOut } = this.props
 
     await deleteUser(id)
 
@@ -114,20 +115,12 @@ class Users extends Component {
   }
 
   render() {
-    const {
-      currentUser: { isFulfilled: isCurrentUserFulfilled },
-      users: {
-        isFulfilled,
-        isRejected,
-        data: { response, params },
-        error,
-      },
-      listPageName,
-    } = this.props
-
-    const errMsg = `Error loading data: ${error}`
-
-    return <div className="">Users</div>
+    // Get users
+    return (
+      <DefaultLayout>
+        <div className="">Users</div>
+      </DefaultLayout>
+    )
   }
 }
 

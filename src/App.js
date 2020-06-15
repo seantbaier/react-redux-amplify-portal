@@ -1,14 +1,14 @@
 import React from 'react'
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { withAuthenticator } from '@aws-amplify/ui-react'
+import amplifyCustomUi from 'aws-amplify-react-custom-ui'
 import SignIn from './components/auth/SignIn'
 import ForgotPassword from './components/auth/ForgotPassword'
-import ForgotPasswordSubmit from './components/auth/ForgotPasswordSubmit'
 import Amplify from 'aws-amplify'
 import { Provider } from 'react-redux'
 import configureStore from './store'
 
 // Components
-import View from './views'
+import Routes from './Routes'
 import './styles/app.css'
 
 import * as aws_amplify_react from 'aws-amplify-react'
@@ -39,10 +39,9 @@ const store = configureStore()
 const App = () => (
   <Provider store={store}>
     <div>
-      <AmplifySignOut />
-      <View />
+      <Routes />
     </div>
   </Provider>
 )
 
-export default withAuthenticator(App)
+export default amplifyCustomUi.withAuthenticator(App)
