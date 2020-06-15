@@ -1,0 +1,8 @@
+.dashboard-container {
+  flex: 16;
+  padding: 30px 50px; }
+  .dashboard-container .dashboard-header {
+    height: 30px;
+    margin-bottom: 50px; }
+    .dashboard-container .dashboard-header img {
+      height: 100%; }

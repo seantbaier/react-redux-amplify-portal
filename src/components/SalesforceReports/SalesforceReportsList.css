@@ -1,0 +1,16 @@
+.list-container {
+  width: 100%; }
+  .list-container a {
+    color: #003358;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    padding: 15px 0 15px 15px;
+    border-radius: 2px;
+    border-left: 2px solid #003358;
+    display: block;
+    transition: .5s;
+    margin-bottom: 15px; }
+    .list-container a:hover {
+      border-left: 25px solid #35a3ca;
+      color: #35a3ca; }

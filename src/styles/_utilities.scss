@@ -1,0 +1,39 @@
+@import 'variables';
+
+.link-button {
+  border: none;
+  color: $link-color;
+  display: flex;
+  padding: 0;
+  transition: 0.5s;
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: darken($link-color, 10%);
+    text-decoration: underline;
+  }
+}
+
+.form-error {
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(223, 106, 106, 0.75);
+  color: #fff;
+}
+
+.Section__sectionBody___ihqqd {
+  display: none;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  color: lighten(#333, 60%);
+  font-weight: lighter;
+  margin-bottom: 50px;
+}

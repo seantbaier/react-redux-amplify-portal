@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import SignIn from './components/auth/SignIn'
+import ForgotPassword from './components/auth/ForgotPassword'
+import ForgotPasswordSubmit from './components/auth/ForgotPasswordSubmit'
+import Amplify from 'aws-amplify'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Components
+import View from './views'
+import './styles/app.css'
+
+import * as aws_amplify_react from 'aws-amplify-react'
+import AmplifyCustomUi from 'aws-amplify-react-custom-ui'
+
+const {
+  REACT_APP_AMPLIFY_REGION,
+  REACT_APP_AMPLIFY_AUTH_USER_POOL_ID,
+  REACT_APP_AMPLIFY_AUTH_APP_CLIENT_ID,
+  REACT_APP_AMPLIFY_AUTH_IDENTITY_POOL_ID,
+} = process.env
+
+const config = {
+  mandatorySignIn: true,
+  region: REACT_APP_AMPLIFY_REGION,
+  userPoolId: REACT_APP_AMPLIFY_AUTH_USER_POOL_ID,
+  identityPoolId: REACT_APP_AMPLIFY_AUTH_IDENTITY_POOL_ID,
+  userPoolWebClientId: REACT_APP_AMPLIFY_AUTH_APP_CLIENT_ID,
 }
 
-export default App;
+Amplify.configure(config)
+AmplifyCustomUi.configure(aws_amplify_react)
+AmplifyCustomUi.setSignIn(SignIn)
+AmplifyCustomUi.setForgotPassword(ForgotPassword)
+
+const App = () => (
+  <div>
+    <AmplifySignOut />
+    <View />
+  </div>
+)
+
+export default withAuthenticator(App)
