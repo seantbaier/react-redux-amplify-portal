@@ -23,7 +23,7 @@ export default (authEndpointUrl, publicEndpointUrl) => ({
     }
 
     return axios
-      .get(`${process.env.REACT_APP_API_URL}/ping`)
+      .get(`${process.env.REACT_APP_API_URL}/users`)
       .then((response) => response)
   },
   findById: (id, includeInactive = false) =>

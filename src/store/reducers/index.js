@@ -19,6 +19,12 @@ import userCreate from './users/userCreate'
 import userUpdate from './users/userUpdate'
 import userDelete from './users/userDelete'
 
+import discrepancyFind from './discrepancies/discrepancyFind'
+import discrepancyFindById from './discrepancies/discrepancyFindById'
+import discrepancyCreate from './discrepancies/discrepancyCreate'
+import discrepancyUpdate from './discrepancies/discrepancyUpdate'
+import discrepancyDelete from './discrepancies/discrepancyDelete'
+
 export default combineReducers({
   auth: combineReducers({
     signUp: authSignUp,
@@ -40,5 +46,12 @@ export default combineReducers({
     create: userCreate,
     update: userUpdate,
     delete: userDelete,
+  }),
+  discrepancy: combineReducers({
+    find: discrepancyFind,
+    findById: discrepancyFindById,
+    create: discrepancyCreate,
+    update: discrepancyUpdate,
+    delete: discrepancyDelete,
   }),
 })

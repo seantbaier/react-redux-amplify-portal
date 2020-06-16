@@ -5,6 +5,7 @@ import axios from 'axios'
 import { ENDPOINT_TYPE } from '../store/constants'
 import auth from './auth'
 import user from './user'
+import discrepancy from './discrepancy'
 
 Amplify.configure({
   Auth: {
@@ -27,39 +28,40 @@ const endpointUrl = (type, url) =>
 const publicEndpointUrl = (url) => endpointUrl(ENDPOINT_TYPE.PUBLIC, url)
 const authEndpointUrl = (url) => endpointUrl(ENDPOINT_TYPE.AUTH, url)
 
-const getJwtToken = async () => {
-  let token = null
+// const getJwtToken = async () => {
+//   let token = null
 
-  try {
-    const session = await Auth.currentSession()
+//   try {
+//     const session = await Auth.currentSession()
 
-    token = session.idToken.jwtToken
-  } catch (err) {
-    // ignore for now...
-  }
+//     token = session.idToken.jwtToken
+//   } catch (err) {
+//     // ignore for now...
+//   }
 
-  return token
-}
+//   return token
+// }
 
 // Add auth credentials to all outgoing API requests.
-axios.interceptors.request.use(
-  async (config) => {
-    if (config.url.includes(process.env.REACT_APP_API_URL)) {
-      const token = await getJwtToken()
-      if (token) {
-        // eslint-disable-next-line no-param-reassign
-        config.headers.common.authorization = token
-      }
-    }
+// axios.interceptors.request.use(
+//   async (config) => {
+//     if (config.url.includes(process.env.REACT_APP_API_URL)) {
+//       const token = await getJwtToken()
+//       if (token) {
+//         // eslint-disable-next-line no-param-reassign
+//         config.headers.common.authorization = token
+//       }
+//     }
 
-    return config
-  },
-  (error) => {
-    return Promise.reject(error)
-  }
-)
+//     return config
+//   },
+//   (error) => {
+//     return Promise.reject(error)
+//   }
+// )
 
 export default {
   auth: auth(Auth),
   user: user(authEndpointUrl, publicEndpointUrl),
+  discrepancy: discrepancy(),
 }

@@ -21,24 +21,32 @@ class Sidebar extends Component {
       <div className="sidebar-container">
         <div className="nav-container">
           <div className="nav-icon-container">
-            <Link to="/discrepancy-report">
-              <img src={monitoringIcon} alt="Discrepancy Reports Icon" />
+            <Link to="/discrepancy">
+              <img
+                src={monitoringIcon}
+                alt="Discrepancy Reports Icon"
+                title="Discrepancy Report"
+              />
             </Link>
+            <span className="icon-name">Discrepancies</span>
           </div>
           <div className="nav-icon-container">
-            <Link to="/salesforce-reports">
+            <Link to="/salesforce">
               <img src={researchIcon} alt="Salesforce Reports Icon" />
             </Link>
+            <span className="icon-name">Salesforce</span>
           </div>
           <div className="nav-icon-container">
             <Link to="/ecommerce">
               <img src={shopIcon} alt="Ecommerce Summary Page Icon" />
             </Link>
+            <span className="icon-name">Ecommerce</span>
           </div>
           <div className="nav-icon-container">
-            <Link to="/organizations">
+            <Link to="/ums">
               <img src={businessIcon} alt="Organizations List Page" />
             </Link>
+            <span className="icon-name">UMS</span>
           </div>
         </div>
         <Dropdown />

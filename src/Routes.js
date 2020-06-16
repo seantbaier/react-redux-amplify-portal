@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
 
 // import components
-import Users from './views/Users/Users'
+import Discrepancies from './views/Discrepancies/Discrepancies'
 
 // import css and images
 
@@ -15,16 +15,21 @@ class Routes extends Component {
             <Switch onUpdate={() => window.scrollTo(0, 0)}>
               <Route
                 exact
-                path="/users"
+                path="/discrepancies"
                 render={(props) => {
-                  return <Users match={props.match} history={props.history} />
+                  return (
+                    <Discrepancies
+                      match={props.match}
+                      history={props.history}
+                    />
+                  )
                 }}
               />
               <Route
                 exact
                 path="/"
                 render={(props) => {
-                  return <Redirect to="/users" />
+                  return <Redirect to="/discrepancies" />
                 }}
               />
             </Switch>
